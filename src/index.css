@@ -3,9 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
 
+  background-color: #1a1a1a;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,7 +13,34 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+#root {
+  background-color: #1a1a1ace;
+  border-radius: 10px;
+  box-shadow: 0 0 0 transparent;
+  transition: box-shadow 0.6s;
+}
 
+#root:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.55);
+}
+
+@keyframes shadow-drop-center {
+  0% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  100% {
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.55);
+  }
+}
+
+.error{
+    border: solid 3px rgba(255, 255, 255, 0.128);
+    background-color: rgba(255, 0, 0, 0.23);
+}
+
+input:focus, input:hover {
+  animation:shadow-drop-center 0.3s linear both
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -29,11 +56,14 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url(https://indiehoy.com/wp-content/uploads/2018/05/record-store.jpg);
+  background-size: cover;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.5em;
   line-height: 1.1;
+  margin: 0.1em;
 }
 
 button {
@@ -46,14 +76,18 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 10px;
+  
 }
-button:hover {
+button:hover, button:focus {
   border-color: #646cff;
+  animation:shadow-drop-center 0.3s linear both
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
 
 @media (prefers-color-scheme: light) {
   :root {
